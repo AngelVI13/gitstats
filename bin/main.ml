@@ -11,14 +11,10 @@ let rec find_commits lines commits =
   match lines with
   | [] -> commits
   | hd :: tl ->
-      print_endline hd;
       let commits =
-        match Scanf.sscanf_opt hd "commit %S" Fun.id with
+        match Scanf.sscanf_opt hd "commit %s" Fun.id with
         | None -> commits
-        | Some c ->
-            Printf.printf "%s" c;
-            c :: commits
-      in
+        | Some c -> c :: commits in
       find_commits tl commits
 
 let find_commits_new lines = find_commits lines []
