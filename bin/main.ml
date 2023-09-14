@@ -32,13 +32,13 @@ let rec records_of_lines_aux lst records =
 let records_of_lines_tr lst = records_of_lines_aux lst []
 
 let () =
+  let t = Sys.time () in
   let input = read_stdin [] in
 
   (* let input = String.split_on_char '\n' test in *)
   (* TODO: try to do some paralellization of input processing *)
   (* TODO: or try to split input in shell and use GNU/parallel to
      execute multiple version of the program *)
-  let t = Sys.time () in
   let commits = input |> records_of_lines_tr in
   let t1 = Sys.time () in
   print_commits commits;
