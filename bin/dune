@@ -1,4 +1,6 @@
 (executable
  (public_name gitstats)
  (name main)
- (libraries gitstats str))
+ (libraries gitstats str)
+ (preprocess
+  (pps ppx_deriving.show ppx_deriving.ord)))
